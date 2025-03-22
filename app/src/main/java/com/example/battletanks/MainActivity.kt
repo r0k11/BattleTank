@@ -18,7 +18,9 @@ import com.example.battletanks.databinding.ActivityMainBinding
 
 lateinit var binding: ActivityMainBinding
 class MainActivity : AppCompatActivity() {
-
+private val gridDrawer by lazy{
+    GridDrawer(context = this)
+}
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,6 +37,7 @@ class MainActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when(item.itemId){
             R.id.menu_settings -> {
+                gridDrawer.drawGrid()
                 return true
             }
             else -> super.onOptionsItemSelected(item)
